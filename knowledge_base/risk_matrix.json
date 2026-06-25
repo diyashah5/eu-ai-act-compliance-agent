@@ -1,0 +1,47 @@
+{
+  "risk_levels": {
+    "unacceptable": {
+      "description": "AI practices presenting a clear threat to safety, livelihoods, and rights of people (e.g., social scoring, cognitive manipulation, real-time biometric identification in public spaces with exceptions).",
+      "action": "Prohibited. System must not be placed on the market or put into service."
+    },
+    "high": {
+      "description": "AI systems listed under Annex III or safety components of regulated products.",
+      "action": "Obligatory compliance with Chapter 2 requirements (Articles 9-15) and conformity assessment."
+    },
+    "limited": {
+      "description": "AI systems presenting specific transparency risks (e.g., chatbots, deepfakes, emotion recognition).",
+      "action": "Ensure users are informed they are interacting with an AI system (Article 52)."
+    },
+    "minimal": {
+      "description": "AI systems representing low or no risk (e.g., spam filters, inventory software, basic games).",
+      "action": "No obligations under the Act, voluntary codes of conduct encouraged."
+    }
+  },
+  "mappings": [
+    {
+      "category_id": "annex_iii_1",
+      "risk_level": "high",
+      "required_articles": ["article_6", "article_9", "article_10"]
+    },
+    {
+      "category_id": "annex_iii_2",
+      "risk_level": "high",
+      "required_articles": ["article_6", "article_9"]
+    },
+    {
+      "category_id": "annex_iii_3",
+      "risk_level": "high",
+      "required_articles": ["article_6", "article_9", "article_13"]
+    },
+    {
+      "category_id": "annex_iii_4",
+      "risk_level": "high",
+      "required_articles": ["article_6", "article_9", "article_13"]
+    },
+    {
+      "category_id": "annex_iii_5",
+      "risk_level": "high",
+      "required_articles": ["article_6", "article_9", "article_13"]
+    }
+  ]
+}

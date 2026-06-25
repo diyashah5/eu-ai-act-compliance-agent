@@ -1,0 +1,34 @@
+{
+  "high_risk_categories": [
+    {
+      "id": "annex_iii_1",
+      "title": "Biometrics",
+      "description": "Remote biometric identification systems, biometrics-based categorization, and emotion recognition systems.",
+      "articles_ref": ["article_6", "article_9", "article_10"]
+    },
+    {
+      "id": "annex_iii_2",
+      "title": "Critical Infrastructure",
+      "description": "AI systems intended to be used as safety components in the management and operation of road traffic and the supply of water, gas, heating and electricity.",
+      "articles_ref": ["article_6", "article_9"]
+    },
+    {
+      "id": "annex_iii_3",
+      "title": "Education and Vocational Training",
+      "description": "AI systems intended to be used to determine access or admission, or to assess learning outcomes and behavior of students.",
+      "articles_ref": ["article_6", "article_9", "article_13"]
+    },
+    {
+      "id": "annex_iii_4",
+      "title": "Employment, Workers Management and Access to Self-Employment",
+      "description": "AI systems intended to be used for recruitment, selection, promotion, termination, or monitoring of workers.",
+      "articles_ref": ["article_6", "article_9", "article_13"]
+    },
+    {
+      "id": "annex_iii_5",
+      "title": "Access to Essential Services and Benefits",
+      "description": "AI systems used to evaluate eligibility for public assistance, credit scoring, or emergency response dispatch.",
+      "articles_ref": ["article_6", "article_9", "article_13"]
+    }
+  ]
+}

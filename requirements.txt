@@ -1,0 +1,5 @@
+google-adk
+anthropic
+streamlit
+python-dotenv
+fpdf2

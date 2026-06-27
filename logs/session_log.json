@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2026-06-27T10:36:43.647772+00:00",
+    "system_description_summary": "An AI-powered CV screening tool that automatically ranks and filters job applicants based on their r",
+    "risk_tier": "HIGH_RISK",
+    "compliance_score": 35,
+    "overall_status": "CRITICAL_GAPS",
+    "pipeline_status": "success"
+  },
+  {
+    "timestamp": "2026-06-27T10:36:43.691932+00:00",
+    "system_description_summary": "An AI-powered medical diagnosis assistant chatbot that analyses patient symptoms, medical history, a",
+    "risk_tier": "HIGH_RISK",
+    "compliance_score": 35,
+    "overall_status": "CRITICAL_GAPS",
+    "pipeline_status": "success"
+  },
+  {
+    "timestamp": "2026-06-27T10:36:43.751645+00:00",
+    "system_description_summary": "A customer-facing product recommendation engine on an e-commerce website that suggests items based o",
+    "risk_tier": "LIMITED_RISK",
+    "compliance_score": 85,
+    "overall_status": "NEEDS_WORK",
+    "pipeline_status": "success"
+  }
+]

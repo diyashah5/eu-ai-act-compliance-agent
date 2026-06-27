@@ -1,6 +1,14 @@
 {
   "articles": [
     {
+      "id": "article_5",
+      "title": "Prohibited AI practices",
+      "obligations": [
+        "Certain AI practices are prohibited and must not be placed on the market or put into service.",
+        "Includes social scoring, cognitive behavioural manipulation, and real-time remote biometric identification in publicly accessible spaces for law enforcement (with narrow exceptions)."
+      ]
+    },
+    {
       "id": "article_6",
       "title": "Classification rules for high-risk AI systems",
       "obligations": [
@@ -26,11 +34,46 @@
       ]
     },
     {
+      "id": "article_11",
+      "title": "Technical documentation",
+      "obligations": [
+        "Draw up technical documentation before the high-risk AI system is placed on the market or put into service.",
+        "Documentation must demonstrate compliance with Chapter 2 requirements and be kept up to date.",
+        "Include a general description, detailed specifications, and information on monitoring and control."
+      ]
+    },
+    {
       "id": "article_13",
       "title": "Transparency and provision of information to deployers",
       "obligations": [
         "High-risk AI systems shall be designed and developed in such a way to ensure that their operation is sufficiently transparent to enable deployers to interpret the system's output.",
         "Accompany the system with instructions for use in an appropriate digital format or otherwise."
+      ]
+    },
+    {
+      "id": "article_14",
+      "title": "Human oversight",
+      "obligations": [
+        "High-risk AI systems shall be designed and developed so they can be effectively overseen by natural persons during the period of use.",
+        "Human oversight measures must enable deployers to understand system capabilities and limitations.",
+        "Include mechanisms to override or interrupt the system where appropriate."
+      ]
+    },
+    {
+      "id": "article_15",
+      "title": "Accuracy, robustness and cybersecurity",
+      "obligations": [
+        "High-risk AI systems shall achieve an appropriate level of accuracy, robustness, and cybersecurity.",
+        "Resilient against errors, faults, and inconsistencies, including through redundancy and backup solutions.",
+        "Protected against unauthorised third parties attempting to alter use or performance."
+      ]
+    },
+    {
+      "id": "article_52",
+      "title": "Transparency obligations for certain AI systems",
+      "obligations": [
+        "Providers must ensure that AI systems intended to interact directly with natural persons are designed so users are informed they are interacting with an AI.",
+        "Applies to chatbots, emotion recognition, biometric categorisation, and AI-generated content (deepfakes) unless exempted."
       ]
     }
   ]

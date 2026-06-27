@@ -12,6 +12,7 @@ import logging
 import os
 import re
 import sys
+import time
 from pathlib import Path
 from typing import Any
 
@@ -126,11 +127,22 @@ def classify_system(system_description: str) -> dict[str, Any]:
     prompt = _build_classification_prompt(system_description)
 
     logger.info("Sending classification request to Gemini (%s)", MODEL_NAME)
-    try:
-        response = model.generate_content(prompt)
-    except Exception as exc:
-        logger.error("Gemini API error: %s", exc)
-        raise
+    last_exc: Exception | None = None
+    for attempt in range(3):
+        try:
+            response = model.generate_content(prompt)
+            break
+        except Exception as exc:
+            last_exc = exc
+            if "429" in str(exc) and attempt < 2:
+                wait = 60
+                logger.warning("Rate limited — retrying in %ds (attempt %d/3)", wait, attempt + 2)
+                time.sleep(wait)
+            else:
+                logger.error("Gemini API error: %s", exc)
+                raise
+    else:
+        raise last_exc  # type: ignore[misc]
 
     if not response.text:
         raise ValueError("Gemini returned an empty response")

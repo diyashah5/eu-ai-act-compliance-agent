@@ -1,34 +1,92 @@
 {
-  "high_risk_categories": [
+  "high_risk_systems": [
     {
-      "id": "annex_iii_1",
-      "title": "Biometrics",
-      "description": "Remote biometric identification systems, biometrics-based categorization, and emotion recognition systems.",
-      "articles_ref": ["article_6", "article_9", "article_10"]
+      "id": "HR1",
+      "category": "Biometrics",
+      "description": "AI systems intended to be used for remote biometric identification of natural persons, biometric categorisation, or emotion recognition.",
+      "article": "Article 6, Annex III point 1",
+      "examples": [
+        "Remote facial recognition system used to verify identity at airport security checkpoints",
+        "Biometric categorisation system that infers age or gender from facial images for access control",
+        "Emotion recognition AI analysing employee facial expressions during video meetings"
+      ]
     },
     {
-      "id": "annex_iii_2",
-      "title": "Critical Infrastructure",
-      "description": "AI systems intended to be used as safety components in the management and operation of road traffic and the supply of water, gas, heating and electricity.",
-      "articles_ref": ["article_6", "article_9"]
+      "id": "HR2",
+      "category": "Critical Infrastructure",
+      "description": "AI systems intended to be used as safety components in the management and operation of critical digital infrastructure, road traffic, or in the supply of water, gas, heating, or electricity.",
+      "article": "Article 6, Annex III point 2",
+      "examples": [
+        "AI safety component monitoring pressure levels in a municipal gas distribution network",
+        "Traffic signal optimisation system controlling intersection timing for a smart city grid",
+        "Predictive maintenance AI for electrical grid transformers that triggers automated shutdowns"
+      ]
     },
     {
-      "id": "annex_iii_3",
-      "title": "Education and Vocational Training",
-      "description": "AI systems intended to be used to determine access or admission, or to assess learning outcomes and behavior of students.",
-      "articles_ref": ["article_6", "article_9", "article_13"]
+      "id": "HR3",
+      "category": "Education and Vocational Training",
+      "description": "AI systems intended to be used to determine access or admission to educational institutions, or to assess students in educational and vocational training contexts.",
+      "article": "Article 6, Annex III point 3",
+      "examples": [
+        "Automated essay scoring system used for university admissions decisions",
+        "AI proctoring tool that flags suspected cheating during online certification exams",
+        "Adaptive learning platform that determines whether a student advances to the next grade level"
+      ]
     },
     {
-      "id": "annex_iii_4",
-      "title": "Employment, Workers Management and Access to Self-Employment",
-      "description": "AI systems intended to be used for recruitment, selection, promotion, termination, or monitoring of workers.",
-      "articles_ref": ["article_6", "article_9", "article_13"]
+      "id": "HR4",
+      "category": "Employment, Workers Management and Access to Self-Employment",
+      "description": "AI systems intended to be used for recruitment, selection, promotion, termination, task allocation, or monitoring and evaluation of workers and persons in employment relationships.",
+      "article": "Article 6, Annex III point 4",
+      "examples": [
+        "CV screening tool that ranks job applicants based on résumé content and past experience",
+        "AI system monitoring call-centre workers for productivity and sentiment during shifts",
+        "Automated platform that recommends which employees receive promotions or pay raises"
+      ]
     },
     {
-      "id": "annex_iii_5",
-      "title": "Access to Essential Services and Benefits",
-      "description": "AI systems used to evaluate eligibility for public assistance, credit scoring, or emergency response dispatch.",
-      "articles_ref": ["article_6", "article_9", "article_13"]
+      "id": "HR5",
+      "category": "Access to Essential Services and Benefits",
+      "description": "AI systems intended to be used to evaluate the creditworthiness of natural persons, or to determine eligibility for essential public assistance benefits and services, including healthcare, housing, and emergency response.",
+      "article": "Article 6, Annex III point 5",
+      "examples": [
+        "Credit scoring model that approves or denies consumer loan applications",
+        "AI system assessing eligibility for social housing or unemployment benefits",
+        "Automated triage system prioritising emergency service dispatch for 112/911 calls"
+      ]
+    },
+    {
+      "id": "HR6",
+      "category": "Law Enforcement",
+      "description": "AI systems intended to be used by or on behalf of law enforcement authorities for individual risk assessments, polygraphs, crime analytics, or evidence evaluation.",
+      "article": "Article 6, Annex III point 6",
+      "examples": [
+        "Predictive policing system identifying geographic areas for increased police patrols",
+        "AI tool analysing CCTV footage to detect suspicious behaviour in public spaces for police review",
+        "Automated system evaluating the reliability of witness statements in criminal investigations"
+      ]
+    },
+    {
+      "id": "HR7",
+      "category": "Migration, Asylum and Border Control Management",
+      "description": "AI systems intended to be used by competent authorities for assessing risks posed by natural persons entering the territory of a Member State, verifying authenticity of travel documents, or assessing asylum applications.",
+      "article": "Article 6, Annex III point 7",
+      "examples": [
+        "Automated system assessing asylum applications for credibility and risk of absconding",
+        "AI document verification tool at border checkpoints detecting forged passports",
+        "Risk-scoring system prioritising visa applications for manual review by immigration officers"
+      ]
+    },
+    {
+      "id": "HR8",
+      "category": "Administration of Justice and Democratic Processes",
+      "description": "AI systems intended to be used in the administration of justice and democratic processes, including assisting judicial authorities in researching and interpreting facts and law, or influencing voting behaviour.",
+      "article": "Article 6, Annex III point 8",
+      "examples": [
+        "AI assistant recommending sentencing ranges based on case facts and prior rulings",
+        "Legal research tool used by judges to predict case outcomes and suggest precedents",
+        "Automated system screening court filings for procedural compliance before hearing"
+      ]
     }
   ]
 }

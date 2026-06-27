@@ -1,4 +1,30 @@
 {
+  "classification_steps": [
+    {
+      "step": 1,
+      "name": "prohibited_check",
+      "description": "Check if the AI system falls under prohibited practices in Article 5 (e.g., social scoring, cognitive manipulation, real-time remote biometric identification in publicly accessible spaces for law enforcement without narrow exceptions).",
+      "risk_tier": "UNACCEPTABLE_RISK"
+    },
+    {
+      "step": 2,
+      "name": "high_risk_check",
+      "description": "Check if the AI system matches any category in Annex III (HR1–HR8). If matched, classify as high-risk under Chapter 2 (Articles 9–15).",
+      "risk_tier": "HIGH_RISK"
+    },
+    {
+      "step": 3,
+      "name": "limited_risk_check",
+      "description": "Check if the AI system presents transparency risks under Article 52 (e.g., chatbots, emotion recognition, deepfakes, biometric categorisation in non-Annex-III contexts).",
+      "risk_tier": "LIMITED_RISK"
+    },
+    {
+      "step": 4,
+      "name": "default",
+      "description": "If none of the above apply, classify as minimal risk with no mandatory obligations.",
+      "risk_tier": "MINIMAL_RISK"
+    }
+  ],
   "risk_levels": {
     "unacceptable": {
       "description": "AI practices presenting a clear threat to safety, livelihoods, and rights of people (e.g., social scoring, cognitive manipulation, real-time biometric identification in public spaces with exceptions).",
@@ -19,27 +45,42 @@
   },
   "mappings": [
     {
-      "category_id": "annex_iii_1",
+      "category_id": "HR1",
       "risk_level": "high",
       "required_articles": ["article_6", "article_9", "article_10"]
     },
     {
-      "category_id": "annex_iii_2",
+      "category_id": "HR2",
       "risk_level": "high",
       "required_articles": ["article_6", "article_9"]
     },
     {
-      "category_id": "annex_iii_3",
+      "category_id": "HR3",
       "risk_level": "high",
       "required_articles": ["article_6", "article_9", "article_13"]
     },
     {
-      "category_id": "annex_iii_4",
+      "category_id": "HR4",
       "risk_level": "high",
       "required_articles": ["article_6", "article_9", "article_13"]
     },
     {
-      "category_id": "annex_iii_5",
+      "category_id": "HR5",
+      "risk_level": "high",
+      "required_articles": ["article_6", "article_9", "article_13"]
+    },
+    {
+      "category_id": "HR6",
+      "risk_level": "high",
+      "required_articles": ["article_6", "article_9", "article_13"]
+    },
+    {
+      "category_id": "HR7",
+      "risk_level": "high",
+      "required_articles": ["article_6", "article_9", "article_13"]
+    },
+    {
+      "category_id": "HR8",
       "risk_level": "high",
       "required_articles": ["article_6", "article_9", "article_13"]
     }

@@ -34,7 +34,7 @@ def main():
     risk_data = loaded_data[risk_matrix_path]
 
     # 2. Count and print items in major sections
-    categories = annex_data.get("high_risk_categories", [])
+    categories = annex_data.get("high_risk_systems", annex_data.get("high_risk_categories", []))
     articles = articles_data.get("articles", [])
     risk_levels = risk_data.get("risk_levels", {})
     mappings = risk_data.get("mappings", [])
@@ -53,9 +53,14 @@ def main():
 
     print("\n--- Inconsistency Checks ---")
 
-    # 3. Check cross-references in annex_iii.json (articles_ref -> articles)
+    # 3. Check required fields in annex_iii.json and cross-references (articles_ref -> articles)
+    required_fields = {"id", "category", "description", "article", "examples"}
     for cat in categories:
         cat_id = cat.get("id", "UNKNOWN")
+        missing = required_fields - set(cat.keys())
+        if missing:
+            print(f"[-] ERROR: Category '{cat_id}' is missing required fields: {', '.join(sorted(missing))}")
+            errors += 1
         refs = cat.get("articles_ref", [])
         for ref in refs:
             if ref not in article_ids:

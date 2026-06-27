@@ -1,5 +1,5 @@
 google-adk
-anthropic
+google-generativeai
 streamlit
 python-dotenv
 fpdf2

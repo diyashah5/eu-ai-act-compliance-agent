@@ -29,6 +29,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 ANNEX_III_PATH = PROJECT_ROOT / "knowledge_base" / "annex_iii.json"
 RISK_MATRIX_PATH = PROJECT_ROOT / "knowledge_base" / "risk_matrix.json"
 MODEL_NAME = "gemini-2.5-flash-lite"
+MOCK_MODE = True
 
 ANNEX_III_DATA: dict[str, Any] = {}
 RISK_MATRIX_DATA: dict[str, Any] = {}
@@ -113,6 +114,16 @@ def classify_system(system_description: str) -> dict[str, Any]:
     Returns a dict with risk_tier, confidence, reasoning, matched_category,
     and applicable_articles.
     """
+    if MOCK_MODE:
+        logger.info("[MOCK MODE] Bypassing classifier API call")
+        return {
+            "risk_tier": "HIGH_RISK",
+            "confidence": "high",
+            "reasoning": "Mocked classifier output for CV screening tool.",
+            "matched_category": "HR4 Employment, Workers Management and Access to Self-Employment",
+            "applicable_articles": ["Article 6", "Article 9", "Article 10", "Article 11", "Article 13", "Article 14", "Article 15"]
+        }
+
     if not system_description or not system_description.strip():
         raise ValueError("system_description must be a non-empty string")
 

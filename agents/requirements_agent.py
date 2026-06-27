@@ -30,6 +30,7 @@ logger = logging.getLogger(__name__)
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 ARTICLES_PATH = PROJECT_ROOT / "knowledge_base" / "articles_obligations.json"
 MODEL_NAME = "gemini-2.5-flash-lite"
+MOCK_MODE = True
 
 ARTICLES_DATA: dict[str, Any] = {}
 
@@ -177,6 +178,106 @@ def get_requirements(
         raise ValueError(
             f"Invalid risk_tier '{risk_tier}'. Must be one of: {', '.join(sorted(VALID_TIERS))}"
         )
+
+    if MOCK_MODE:
+        logger.info("[MOCK MODE] Bypassing requirements API call")
+        return {
+            "applicable_articles": ["Article 6", "Article 9", "Article 10", "Article 11", "Article 13", "Article 14", "Article 15"],
+            "requirements": [
+                {
+                    "article": "Article 6",
+                    "title": "Classification rules for high-risk AI systems",
+                    "specific_requirements": [
+                        "The AI system meets the criteria specified in Annex III, category HR4, making it a high-risk AI system.",
+                        "A conformity assessment must be completed for the AI system before it is placed on the market or put into service."
+                    ],
+                    "checklist_questions": [
+                        "Does the system clearly meet the criteria for high-risk AI as defined in Annex III, specifically for employment and workers management?",
+                        "Has a conformity assessment been completed for this high-risk AI system?"
+                    ]
+                },
+                {
+                    "article": "Article 9",
+                    "title": "Risk management system",
+                    "specific_requirements": [
+                        "Establish, implement, document, and maintain a comprehensive risk management system.",
+                        "Identify and analyze all known and reasonably foreseeable risks associated with the AI system.",
+                        "Adopt suitable risk mitigation measures, including testing and post-market monitoring."
+                    ],
+                    "checklist_questions": [
+                        "Is there a documented risk management system in place for this AI system?",
+                        "Have all potential risks related to employment decisions, worker management, and access to self-employment been identified and assessed?",
+                        "Are effective risk mitigation measures, including testing and post-market surveillance, actively implemented?"
+                    ]
+                },
+                {
+                    "article": "Article 10",
+                    "title": "Data and data governance",
+                    "specific_requirements": [
+                        "Establish rigorous data governance covering design, collection, and bias analysis.",
+                        "Ensure datasets are relevant, representative, and free of discriminatory bias."
+                    ],
+                    "checklist_questions": [
+                        "Are the training, validation, and testing datasets for this AI system subject to clear data governance policies?",
+                        "Do data governance practices adequately address data collection, preparation, and the potential for bias?",
+                        "Has a comprehensive bias analysis been conducted on the datasets used, particularly concerning protected characteristics relevant to employment?"
+                    ]
+                },
+                {
+                    "article": "Article 11",
+                    "title": "Technical documentation",
+                    "specific_requirements": [
+                        "Draw up comprehensive technical documentation before placement on the market.",
+                        "Ensure the documentation demonstrates compliance with Chapter 2 obligations."
+                    ],
+                    "checklist_questions": [
+                        "Is complete technical documentation available and up-to-date for this high-risk AI system?",
+                        "Does the documentation include a detailed description of the system's functionality, intended use, and its risk management measures?",
+                        "Does the documentation clearly demonstrate how the system complies with all Chapter 2 obligations for high-risk AI?"
+                    ]
+                },
+                {
+                    "article": "Article 13",
+                    "title": "Transparency and provision of information",
+                    "specific_requirements": [
+                        "Ensure the system's operation is sufficiently transparent for deployers to interpret outputs.",
+                        "Accompany the system with clear, accessible instructions for use."
+                    ],
+                    "checklist_questions": [
+                        "Can deployers effectively interpret the outputs and decisions of this AI system in relation to employment matters?",
+                        "Are instructions for use provided to deployers that are clear, understandable, and readily accessible?",
+                        "Does the system's design facilitate understanding of how it arrives at its employment-related recommendations or decisions?"
+                    ]
+                },
+                {
+                    "article": "Article 14",
+                    "title": "Human oversight",
+                    "specific_requirements": [
+                        "Design the system to enable effective human oversight during its period of use.",
+                        "Implement override and interruption mechanisms."
+                    ],
+                    "checklist_questions": [
+                        "Are there effective mechanisms for human oversight of the AI system's operation in employment contexts?",
+                        "Can users (deployers) understand the AI system's capabilities, limitations, and the reasoning behind its employment-related outputs?",
+                        "Are there clear procedures and capabilities to override or interrupt the system if its operation leads to potentially unfair or non-compliant employment decisions?"
+                    ]
+                },
+                {
+                    "article": "Article 15",
+                    "title": "Accuracy, robustness and cybersecurity",
+                    "specific_requirements": [
+                        "Achieve appropriate levels of accuracy, robustness, and cybersecurity.",
+                        "Ensure resilience against errors, faults, and unauthorized alterations."
+                    ],
+                    "checklist_questions": [
+                        "Does the AI system demonstrate an appropriate level of accuracy and robustness for its intended use in employment decisions?",
+                        "Are there measures in place to ensure the system's resilience against errors, faults, and inconsistencies (e.g., redundancy, backups)?",
+                        "Is the AI system adequately protected against cybersecurity threats that could compromise its performance or lead to unauthorized alterations in employment contexts?"
+                    ]
+                }
+            ],
+            "summary": "Mocked requirements list for high-risk HR tool."
+        }
 
     if risk_tier == "UNACCEPTABLE_RISK":
         logger.info("UNACCEPTABLE_RISK — returning Article 5 ban (no API call)")

@@ -40,6 +40,11 @@ from agents.gap_analyser_agent import analyse_gaps, get_article_num
 from agents.report_generator_agent import generate_report, generate_pdf_report
 
 # ---------------------------------------------------------------------------
+# MCP Client - retrieves knowledge base via the MCP server instead of local JSON
+# ---------------------------------------------------------------------------
+from mcp_server.client import get_kb_data_sync
+
+# ---------------------------------------------------------------------------
 # Mock Mode - set True to bypass all Gemini API calls
 # ---------------------------------------------------------------------------
 MOCK_MODE = True
@@ -425,6 +430,20 @@ def _log_session(result: dict[str, Any]) -> None:
 def main() -> None:
     """Test the pipeline with 3 different AI system scenarios."""
     load_dotenv(PROJECT_ROOT / ".env")
+
+    # --- Load knowledge base via MCP server ---
+    logger.info("Fetching knowledge base from MCP server...")
+    try:
+        kb_data = get_kb_data_sync()
+        logger.info(
+            "MCP KB loaded: %d high-risk systems, %d articles, %d classification steps",
+            len(kb_data.get("annex_iii", {}).get("high_risk_systems", [])),
+            len(kb_data.get("articles_obligations", {}).get("articles", [])),
+            len(kb_data.get("risk_matrix", {}).get("classification_steps", [])),
+        )
+    except Exception as exc:
+        logger.warning("MCP server unavailable (%s), falling back to local KB files", exc)
+        kb_data = None
 
     if not MOCK_MODE:
         load_classifier_kb()

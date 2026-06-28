@@ -88,5 +88,27 @@
         "Automated system screening court filings for procedural compliance before hearing"
       ]
     }
+  ],
+  "prohibited_systems": [
+    {
+      "id": "PROH1",
+      "name": "Social Scoring",
+      "description": "AI systems used by public authorities or private entities for evaluating or classifying natural persons over a certain period based on their social behaviour or known or predicted personal or personality characteristics."
+    },
+    {
+      "id": "PROH2",
+      "name": "Cognitive Behavioural Manipulation",
+      "description": "AI systems intended to distort human behaviour, leading to physical or psychological harm by deploying subliminal techniques or exploiting vulnerabilities."
+    },
+    {
+      "id": "PROH3",
+      "name": "Real-time Biometrics in Public Spaces",
+      "description": "Real-time remote biometric identification systems in publicly accessible spaces for the purpose of law enforcement, unless exceptionally permitted."
+    },
+    {
+      "id": "PROH4",
+      "name": "Biometric Categorisation based on Sensitive Attributes",
+      "description": "AI systems that categorise natural persons individually based on their biometric data to deduce or infer their political, philosophical, or religious beliefs, sexual orientation, race, or union membership."
+    }
   ]
 }

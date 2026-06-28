@@ -3,3 +3,4 @@ google-genai
 streamlit
 python-dotenv
 fpdf2
+mcp

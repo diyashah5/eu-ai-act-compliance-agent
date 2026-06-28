@@ -22,6 +22,7 @@
       "obligations": [
         "Establish, implement, document and maintain a risk management system.",
         "Identify and analyze the known and reasonably foreseeable risks associated with each high-risk AI system.",
+        "Estimate and evaluate the risks that may emerge during intended use and reasonably foreseeable misuse.",
         "Adopt suitable risk management measures, including testing and post-market monitoring."
       ]
     },

@@ -116,7 +116,8 @@ def append_session_log(entry: dict[str, Any]) -> None:
             logger.warning("Corrupted session log - starting fresh")
             existing = []
 
-    existing.append(entry)
+    if not existing or existing[-1].get('system_description_summary', '') != entry.get('system_description_summary', ''):
+        existing.append(entry)
 
     with open(SESSION_LOG_PATH, "w", encoding="utf-8") as f:
         json.dump(existing, f, indent=2, ensure_ascii=False)

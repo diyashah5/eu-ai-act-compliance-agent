@@ -16,7 +16,7 @@ import time
 from pathlib import Path
 from typing import Any
 
-import google.generativeai as genai
+from google import genai
 from dotenv import load_dotenv
 
 logging.basicConfig(
@@ -133,15 +133,17 @@ def classify_system(system_description: str) -> dict[str, Any]:
             "GOOGLE_API_KEY is not set. Add it to your .env file."
         )
 
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel(MODEL_NAME)
+    client = genai.Client(api_key=api_key)
     prompt = _build_classification_prompt(system_description)
 
     logger.info("Sending classification request to Gemini (%s)", MODEL_NAME)
     last_exc: Exception | None = None
     for attempt in range(3):
         try:
-            response = model.generate_content(prompt)
+            response = client.models.generate_content(
+                model=MODEL_NAME,
+                contents=prompt,
+            )
             break
         except Exception as exc:
             last_exc = exc

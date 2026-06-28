@@ -29,15 +29,15 @@ sys.path.insert(0, str(AGENTS_DIR))
 # ---------------------------------------------------------------------------
 # Import agent modules
 # ---------------------------------------------------------------------------
-import classifier_agent
-import requirements_agent
-import gap_analyser_agent
-import report_generator_agent
+from agents import classifier_agent  # type: ignore[import-untyped]
+from agents import requirements_agent  # type: ignore[import-untyped]
+from agents import gap_analyser_agent  # type: ignore[import-untyped]
+from agents import report_generator_agent  # type: ignore[import-untyped]
 
-from classifier_agent import classify_system, load_knowledge_base as load_classifier_kb
-from requirements_agent import get_requirements, load_articles_obligations
-from gap_analyser_agent import analyse_gaps, get_article_num
-from report_generator_agent import generate_report, generate_pdf_report
+from agents.classifier_agent import classify_system, load_knowledge_base as load_classifier_kb
+from agents.requirements_agent import get_requirements, load_articles_obligations
+from agents.gap_analyser_agent import analyse_gaps, get_article_num
+from agents.report_generator_agent import generate_report, generate_pdf_report
 
 # ---------------------------------------------------------------------------
 # Mock Mode - set True to bypass all Gemini API calls

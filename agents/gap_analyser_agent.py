@@ -17,7 +17,7 @@ import time
 from pathlib import Path
 from typing import Any
 
-import google.generativeai as genai
+from google import genai
 from dotenv import load_dotenv
 
 from classifier_agent import classify_system, load_knowledge_base as load_classifier_kb
@@ -210,15 +210,17 @@ def analyse_gaps(
     if not api_key:
         raise EnvironmentError("GOOGLE_API_KEY is not set. Add it to your .env file.")
 
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel(MODEL_NAME)
+    client = genai.Client(api_key=api_key)
     prompt = _build_gap_analysis_prompt(requirements, full_responses)
 
     logger.info("Sending gap analysis request to Gemini (%s)", MODEL_NAME)
     last_exc: Exception | None = None
     for attempt in range(3):
         try:
-            response = model.generate_content(prompt)
+            response = client.models.generate_content(
+                model=MODEL_NAME,
+                contents=prompt,
+            )
             break
         except Exception as exc:
             last_exc = exc
